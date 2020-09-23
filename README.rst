@@ -1,6 +1,8 @@
-# li-ion-charge-forecast
+li-ion-charge-forecast
+======================
 
 Python Library that predicts the charging time in minutes of a Lithium/Ion battery with simple discrete parameters.
+
 Librería de Python que predice los tiempos en minutos de la carga de un dispositivo con Batería de Litio/Ión con parámetros discretos simples. 
 
 El repositorio incluye:
