@@ -21,7 +21,7 @@ La función principal está alojada en la librería y se llama ``tiempos_de_carg
     
 Valores de Entrada:
 	-  **i_actual** : De 0 a Infinito, en la práctica de 10 a 3000. Se mide en mA (miliAmperes). Representa la corriente actual con la que se está cargando la batería.
-	-  **bat_state** : De 0 a 100. Es un valor de porcentaje (%). Representa el porcentaje de carga total que tiene la batería.
+	-  **bat_state** : De 0.0 a 1.0. Es un valor de porcentaje de 0 a 100 %. Representa el porcentaje de carga total que tiene la batería.
 	-  **bat_capac** : De 100 a Infinito, en la práctica de 100 a 6000 (en el caso de dispositivos portátiles/pequeños). Se mide en mAh (miliAmpereHora). Representa la capacidad total de energía que almacena la batería, en un término mas simple es la capacidad de la batería.
 	-  **i_max** : De 500 a Infinito, en la práctica de 1000 a 4000. Se mide en mA (miliAmperes). Representa la corriente máxima que puede recibir la batería/dispositivo que se esté cargando, este valor es intrínseco del dispositivo a cargar y lo suele dar el fabricante.
 	
