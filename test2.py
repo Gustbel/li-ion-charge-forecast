@@ -3,7 +3,7 @@
 
 from lib import tiempos_de_carga as tc
 
-a, b, c, d, e = tc.tiempo_carga (800, 0.1, 3110, 1500)
+a, b, c, d, e = tc.tiempo_carga (800, 0.10, 3110, 2500)
 
 print(a)
 print(b)

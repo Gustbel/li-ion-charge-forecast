@@ -6,8 +6,8 @@ from math import log
 
 def tiempo_carga (i_actual, bat_state, bat_capac, i_max):
 
-    intersect = 0.7  
-    tau_max = 2.5           # Aunque la matemática dice que se llega aprox a 0 en 5tau, las baterías terminan de cargar en mucho menos tiempo (por ahora dejamos 2.5tau)
+    tau_max_teoric = 5      # Este es el tau maximo teórico y solo lo usaremos en la función para calcular la intersección
+    tau_max = 2.5           # Aunque la matemática dice que se llega aprox a 100% en 5tau, las baterías terminan de cargar en mucho menos tiempo (por ahora dejamos 2.5tau)
     base_exponencial = 2    # Por ahora según los comportamientos vistos, la base del exponencial que mejor se adapta a una carga de batería en fase CV es 2
 
     ####      Comprobaciones        ####
@@ -45,7 +45,7 @@ def tiempo_carga (i_actual, bat_state, bat_capac, i_max):
 
     ####      CC-CV Transición Charging Phase     ####    Cálculo de la Transición entre las fases CC y CA     
 
-    intersect = - (0.3/5) * log( i_actual / i_max, base_exponencial)    # Acá si tenemos que poner que el tau máximo es 5 y no tau_max 
+    intersect = - (0.3/tau_max_teoric) * log( i_actual / i_max, base_exponencial)    # Acá si tenemos que poner que el tau máximo teórico y no tau_max 
                                                                         # porque hay que respetar la función verdadera a la hora de calcular la intersección
 
     
@@ -93,5 +93,4 @@ def calculo_cc (inicial, final, capacidad, corriente):
     return ( ( capacidad * (final - inicial) ) / corriente ) * 60 
 
 def calculo_cv (inicial, final, capacidad, corriente_max, tau_m, base):
-    #return ( (capacidad/corriente_max) * ( exp( final/(0.3/tau_m) ) - exp( inicial/(0.3/tau_m) ) ) ) * 60
     return ( ((capacidad * 0.3) /corriente_max) * ( pow( base,  final/(0.3/tau_m) )  - pow ( base, inicial/(0.3/tau_m) ) ) ) * 60
